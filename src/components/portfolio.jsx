@@ -81,16 +81,6 @@ const Portfolio = () => {
           },
         });
 
-        timeline.to("#portfolio-video>#banner-masking-portfolio", {  
-          opacity: '1',
-          scrollTrigger: {
-            trigger: "#portfolio-video",
-            start: "top",
-            end: "top",
-            scrub: 0.5,
-          },
-        });
-
         // Start rendering initially
         render();
       }
