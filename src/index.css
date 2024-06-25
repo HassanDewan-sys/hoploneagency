@@ -18,9 +18,9 @@ body .loadingscreen {
 }
 body .loadingscreen .loadingscreen-counter h1 {
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-50%, -50%);
   color: #fff;
   font-size: 150px;
 }
@@ -1957,6 +1957,17 @@ img#swordmen {
 body .loadingscreen .loadingscreen-counter h1 {
   top: 50%;
   transform: translate(-50%, -50%);
+}
+#Services-masking {
+  display: none !important;
+}
+
+#banner-masking-portfolio {
+  display: none !important;
+}
+
+#banner-masking {
+  display: none !important;
 }
   
 }
