@@ -1,0 +1,107 @@
+#main-menu {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    background: black;
+    position: fixed;
+    z-index: -50;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: 0.5s ease-in-out all;
+  }
+  #main-menu ul {
+    width: 100%;
+    height: 75vh;
+    margin: 0;
+    padding: 0 140px;
+    position: relative;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 171px;
+}
+
+  #main-menu ul li {
+    min-height: 100px;
+    padding: 0 !important;
+  }
+
+  #main-menu ul li a {
+    font-size: 69px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: syne;
+    font-weight: bold;
+    line-height: 0.8em;
+    overflow: hidden;
+}
+  canvas#menu-background {
+    position: fixed;
+    width: 100vw !important;
+    height: 100vh !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+  }
+  .mainmenucursor {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+    z-index: 1;
+    top: -160px;
+    left: 0;
+    transform: translate(-50%, -50%);
+    }
+
+  .project {
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 1;
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: difference;
+  }
+
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  .b-canvas {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50px, -50%);
+    visibility: visible;
+    z-index: 1;
+  }
+
+  #main-menu.open{
+    z-index: 999;
+  }
+  #header.headerfixed {
+        position: fixed;
+        z-index: 9999;
+    }
+
+    #main-menu {
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #main-menu ul li:nth-child(1) {
+        margin-top: 150px;
+    }
