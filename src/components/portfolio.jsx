@@ -135,6 +135,26 @@ const Portfolio = () => {
       mouseY = e.clientY;
     });
 
+    gsap.to("#banner-masking-portfolio", {  
+      opacity: '1',
+      scrollTrigger: {
+        trigger: "#portfolio-video",
+        start: "+=100%",
+        end: "+=100%",
+        scrub: 0.5,
+      },
+    });
+
+    gsap.to("#banner-masking-portfolio", {  
+      opacity: '0',
+      scrollTrigger: {
+        trigger: "#portfolio-video",
+        start: "+=200%",
+        end: "+=200%",
+        scrub: 0.5,
+      },
+    });
+
     portfoliocanvas();
   }, []);
 

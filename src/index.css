@@ -499,14 +499,14 @@ section#testimonial {
   color: #CFFF08;
   width: fit-content;
   font-style: italic;
-  font-size: 40px;
+  font-size: 45px;
 }
 
 #banner .col-lg-6 h3 {
   margin: 0;
   font-family: 'Syne';
   color: #fff;
-  font-size: 80px;
+  font-size: 90px;
   font-weight: bold;
 }
 
@@ -1365,7 +1365,7 @@ img#swordmen {
   pointer-events: none;
   transition: transform 0.2s;
   transform: translate(-38% , -43%);
-  opacity: 1;
+  opacity: 0;
 }
 
 #banner-masking-portfolio div{
@@ -1938,6 +1938,25 @@ div#pr-heading {
 }
 #header {
   transform: translateY(10px);
+}
+#header .menu:hover h2 {
+  transform: none !important;
+}
+
+#header .menu:hover .menu-img img:nth-child(2) {
+  transform: none !important;
+}
+
+#header .menu:hover .menu-img img:nth-child(1) {
+  transform: none;
+}
+
+img#swordmen {
+  transform: none !important;
+}
+body .loadingscreen .loadingscreen-counter h1 {
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
   
 }

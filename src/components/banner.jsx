@@ -53,12 +53,12 @@ const banner = () => {
       TweenMax.set($heroA, { transformStyle: 'preserve-3d' });
 
       $body.mousemove(function(e) {
-        var sxPos = e.pageX / $body.width() * 100 - 50;
-        var syPos = e.pageY / $body.height() * 100 - 50;
+        var sxPos = e.pageX / $body.width() * 100 - 2;
+        var syPos = e.pageY / $body.height() * 100 - 2;
 
         TweenMax.to($heroA, 0.5, {
-          rotationY: 0.05 * sxPos,
-          rotationX: 0.20 * syPos,
+          rotationY: 0.2 * sxPos,
+          rotationX: 0.100 * syPos,
           rotationZ: '-0.1',
           transformPerspective: 500,
           transformOrigin: 'center center'

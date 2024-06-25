@@ -120,7 +120,7 @@ const about = () => {
             <div className="col-lg-7">
               <div className="heading">
                 <div className="smallheading">
-                  <h3>Abouts</h3>
+                  <h3>About</h3>
                 </div>
                 <div className="bigheading" id='bigheadingabout'>
                   <svg
