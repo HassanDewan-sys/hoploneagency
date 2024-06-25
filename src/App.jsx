@@ -4,7 +4,7 @@ import Header from './header';
 import MobileMenu from './components/mobilemenu'; 
 import Home from './home'; 
 import Footer from './footer';
-import Mainloader from '../mainloader':
+import Mainloader from '../mainloader';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
