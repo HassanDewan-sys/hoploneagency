@@ -133,8 +133,8 @@ const blogs = () => {
                                       <img src="img/testimonail-img.jpg" className='img-fluid' />
                                   </div>
                                   <div className="content">
-                                      <h2>Homepage Hero Makeover: Elevate Your Website's First Impression</h2>
-                                      <p>Revamp your website's first impression with our Homepage Hero Makeover for Toqio, featuring UX/UI enhancements and design strategies to boost engagement and conversion rates. Need a website refresh? Contact Jords+Co for expert services in web design, UX, and branding.</p>
+                                      <h2>Homepage Hero Makeover</h2>
+                                      <p>Revamp your website's first impression with our Homepage Hero Makeover for Toqio, featuring UX/UI enhancements and design strategies to boost engagement and conversion rates. Need a website refresh?</p>
                                   </div>
                               </div>
                           </Link>
@@ -144,8 +144,8 @@ const blogs = () => {
                                       <img src="img/testimonail-img.jpg" className='img-fluid' />
                                   </div>
                                   <div className="content">
-                                      <h2>Homepage Hero Makeover: Elevate Your Website's First Impression</h2>
-                                      <p>Revamp your website's first impression with our Homepage Hero Makeover for Toqio, featuring UX/UI enhancements and design strategies to boost engagement and conversion rates. Need a website refresh? Contact Jords+Co for expert services in web design, UX, and branding.</p>
+                                      <h2>Homepage Hero Makeover</h2>
+                                      <p>Revamp your website's first impression with our Homepage Hero Makeover for Toqio, featuring UX/UI enhancements and design strategies to boost engagement and conversion rates. Need a website refresh?</p>
                                   </div>
                               </div>
                           </Link>
@@ -155,8 +155,8 @@ const blogs = () => {
                                       <img src="img/testimonail-img.jpg" className='img-fluid' />
                                   </div>
                                   <div className="content">
-                                      <h2>Homepage Hero Makeover: Elevate Your Website's First Impression</h2>
-                                      <p>Revamp your website's first impression with our Homepage Hero Makeover for Toqio, featuring UX/UI enhancements and design strategies to boost engagement and conversion rates. Need a website refresh? Contact Jords+Co for expert services in web design, UX, and branding.</p>
+                                      <h2>Homepage Hero Makeover</h2>
+                                      <p>Revamp your website's first impression with our Homepage Hero Makeover for Toqio, featuring UX/UI enhancements and design strategies to boost engagement and conversion rates. Need a website refresh?</p>
                                   </div>
                               </div>
                           </Link>

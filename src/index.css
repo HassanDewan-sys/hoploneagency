@@ -1343,10 +1343,11 @@ img#swordmen {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
 }
 
 #blogs .blogs-wrapper a {
-  flex: 0 0 31.8%;
+  flex: 0 0 30%;
 }
 
 #blogs .blogs-wrapper a .blogs-items {
@@ -1390,6 +1391,8 @@ img#swordmen {
 #blogs .blogs-wrapper a .blogs-items .img img {
   object-fit: cover;
   object-position: center center;
+  width: 100%;
+  height: 100%;
 }
 
 #blogs .blogs-wrapper a .blogs-items {
