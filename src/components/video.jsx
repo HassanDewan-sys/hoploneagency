@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import $ from 'jquery';
-import * as THREE from 'three';
 
 const VideoSection = () => {
   const videoRef = useRef(null);
   const cursorRef = useRef(null);
   const [videoMuted, setVideoMuted] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
@@ -54,7 +53,6 @@ const VideoSection = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-
   }, []);
 
   useEffect(() => {
@@ -70,12 +68,18 @@ const VideoSection = () => {
   }, []);
 
   const toggleMute = () => {
-    if (videoMuted) {
-      videoRef.current.muted = false;
+    const newMuteState = !videoMuted;
+    videoRef.current.muted = newMuteState;
+    setVideoMuted(newMuteState);
+  };
+
+  const togglePlayPause = () => {
+    if (isVideoPlaying) {
+      videoRef.current.pause();
     } else {
-      videoRef.current.muted = true;
+      videoRef.current.play();
     }
-    setVideoMuted(!videoMuted);
+    setIsVideoPlaying(!isVideoPlaying);
   };
 
   return (
@@ -83,7 +87,7 @@ const VideoSection = () => {
       <div className="circle01"></div>
       <div className="circle02"></div>
       <div className="video">
-        <button>
+        <button onClick={togglePlayPause}>
           <video ref={videoRef} muted autoPlay playsInline loop>
             <source src="video/hero-video.mp4" type="video/mp4" />
           </video>
@@ -91,10 +95,21 @@ const VideoSection = () => {
       </div>
       <div id="video-cursor" ref={cursorRef} onClick={toggleMute}>
         <div className="marquee">
-          <span>Hello World&nbsp;</span>
-          <span>Hello World&nbsp;</span>
-          <span>Hello World&nbsp;</span>
-          <span>Hello World&nbsp;</span>
+          {videoMuted ? (
+            <>
+              <span>Play Sound&nbsp;</span>
+              <span>Play Sound&nbsp;</span>
+              <span>Play Sound&nbsp;</span>
+              <span>Play Sound&nbsp;</span>
+            </>
+          ) : (
+            <>
+              <span>Pause Sound&nbsp;</span>
+              <span>Pause Sound&nbsp;</span>
+              <span>Pause Sound&nbsp;</span>
+              <span>Pause Sound&nbsp;</span>
+            </>
+          )}
         </div>
       </div>
     </section>

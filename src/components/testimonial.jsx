@@ -1,11 +1,106 @@
-import React, { useEffect } from 'react';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-import $ from 'jquery';
-import * as THREE from 'three';
-
+import React, { useEffect, useRef } from 'react';
 const Testimonial = () => {
+  const containerRef = useRef(null);
+  const wrapperRef = useRef(null);
+
+  const testimonials = [
+    {
+      text: "Jords+Co has created both a brand identity and a new website that I could not be happier with. In the beginning, Jordan took the time to understand my business and the objectives of both the new branding and the website. Throughout the process communication was fantastic and Jordan really went the extra mile to deliver something that has exceeded my expectations.",
+      name: "Tom Kirk",
+      title: "Founder, Zeit Engineering"
+    },
+    {
+      text: "Jords+Co has created both a brand identity and a new website that I could not be happier with. In the beginning, Jordan took the time to understand my business and the objectives of both the new branding and the website. Throughout the process communication was fantastic and Jordan really went the extra mile to deliver something that has exceeded my expectations.",
+      name: "Tom Kirk",
+      title: "Founder, Zeit Engineering"
+    },
+    {
+      text: "Jords+Co has created both a brand identity and a new website that I could not be happier with. In the beginning, Jordan took the time to understand my business and the objectives of both the new branding and the website. Throughout the process communication was fantastic and Jordan really went the extra mile to deliver something that has exceeded my expectations.",
+      name: "Tom Kirk",
+      title: "Founder, Zeit Engineering"
+    },
+    {
+      text: "Jords+Co has created both a brand identity and a new website that I could not be happier with. In the beginning, Jordan took the time to understand my business and the objectives of both the new branding and the website. Throughout the process communication was fantastic and Jordan really went the extra mile to deliver something that has exceeded my expectations.",
+      name: "Tom Kirk",
+      title: "Founder, Zeit Engineering"
+    },
+  ];
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+
+    if (testimonials.length > 0) {
+      // Clone the testimonials for infinite scrolling
+      for (let i = 0; i < testimonials.length; i++) {
+        const clone = wrapper.children[i].cloneNode(true);
+        wrapper.appendChild(clone);
+      }
+
+      const tl = gsap.timeline({ repeat: -1, paused: true });
+      tl.to(wrapper, {
+        xPercent: -100 * testimonials.length,
+        ease: 'none',
+        duration: 20 * testimonials.length,
+      });
+
+      const draggable = Draggable.create(wrapper, {
+        type: 'x',
+        bounds: { minX: -containerRef.current.offsetWidth * testimonials.length, maxX: 0 },
+        inertia: true,
+        onPress() {
+          tl.pause();
+        },
+        onDrag() {
+          gsap.to(wrapper, {
+            x: this.x,
+            duration: 0.1,
+          });
+        },
+        onRelease() {
+          const totalWidth = containerRef.current.offsetWidth * testimonials.length;
+          const currentX = this.x;
+          const progress = gsap.utils.wrap(0, 1, -currentX / totalWidth);
+
+          if (this.x < -containerRef.current.offsetWidth * testimonials.length) {
+            this.endDrag();
+            gsap.to(wrapper, { x: 0 });
+            tl.restart();
+          } else {
+            tl.progress(progress).play();
+          }
+        },
+      });
+
+      tl.play();
+
+      return () => {
+        draggable[0].kill();
+      };
+    }
+  }, [testimonials.length]);
+
+  useEffect(() => {
+    const animation = () => {
+      const heading = document.querySelector('#testimonial .heading h3');
+      gsap.to(heading, {
+        background: 'linear-gradient(to right, #000000 10%, #DADADA 100%)',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#testimonial',
+          start: '+=70%',
+          end: '+=120%',
+          scrub: true,
+          onUpdate: self => {
+            const progress = self.progress.toFixed(3);
+            heading.style.background = `linear-gradient(to right, #000000 ${progress * 100}%, #DADADA ${progress * 100}%)`;
+          },
+        },
+      });
+    };
+
+    animation();
+  }, []);
+
   useEffect(() => {
     const serviceLine = document.getElementById('bigheading');
 
@@ -44,93 +139,59 @@ const Testimonial = () => {
   }, []);
 
   useEffect(() => {
-    const animation = () => {
-      const heading = document.querySelector('#testimonial .heading h3');
-      gsap.to(heading, {
-        background: 'linear-gradient(to right, #000000 10%, #DADADA 100%)',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#testimonial',
-          start: '+=70%',
-          end: '+=120%',
-          scrub: true,
-          onUpdate: self => {
-            const progress = self.progress.toFixed(3);
-            heading.style.background = `linear-gradient(to right, #000000 ${progress * 100}%, #DADADA ${progress * 100}%)`;
+    // Mouse tracking animation for masking element
+    let cursor = document.querySelector('#testimonial-masking');
+    let mouseX = 0;
+    let mouseY = 0;
+
+    gsap.to({}, 0.016, {
+      repeat: -1,
+      onRepeat: function() {
+        gsap.set(cursor, {
+          css: {
+            '-webkit-mask-position': `${mouseX}px ${mouseY}px`,
+            'mask-position': `${mouseX}px ${mouseY}px`,
           },
-        },
+        });
+      },
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+  }, []);
+
+  const cursorRef = useRef(null);
+
+  useEffect(() => {
+    const cursor = cursorRef.current;
+
+    // Mouse move event to update cursor position
+    const moveCursor = (e) => {
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.1,
+        ease: 'power2.out',
       });
     };
 
-    animation();
+    // Attach the mouse move event listener
+    document.addEventListener('mousemove', moveCursor);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener('mousemove', moveCursor);
+    };
   }, []);
-
-  const testimonials = [
-    {
-      id: 1,
-      backgroundImage: 'url("img/testimonail-img.jpg")',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo',
-      heading: 'John Doe',
-      subheading: 'Ceo Design Agency',
-    },
-    {
-      id: 2,
-      backgroundImage: 'url("img/testimonail-img.jpg")',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo',
-      heading: 'John Doe',
-      subheading: 'Ceo Design Agency',
-    },
-    {
-      id: 3,
-      backgroundImage: 'url("img/testimonail-img.jpg")',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo',
-      heading: 'John Doe',
-      subheading: 'Ceo Design Agency',
-    },
-    {
-      id: 4,
-      backgroundImage: 'url("img/testimonail-img.jpg")',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo',
-      heading: 'John Doe',
-      subheading: 'Ceo Design Agency',
-    },
-    {
-      id: 5,
-      backgroundImage: 'url("img/testimonail-img.jpg")',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo',
-      heading: 'John Doe',
-      subheading: 'Ceo Design Agency',
-    },
-    // Add more testimonial objects as needed
-  ];
-
-  const settings = {
-    autoplay: false,
-    autoplaySpeed: 6000,
-    speed: 600,
-    cssEase: 'linear',
-    draggable: true,
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    arrows: false,
-    dots: true,
-    pauseOnHover: false,
-    responsive: [
-      {
-        breakpoint: 768, // For screen widths less than 768px
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
-  };
-  
 
   return (
     <section id='testimonial'>
-      <div className="container-fluid">
+      <section className="black-masking" id='testimonial-masking'>
+        <div></div>
+      </section>
+      <div className="container-fluid" ref={containerRef}>
         <div className="col-lg-11 mx-auto">
           <div className="row">
             <div className="col-lg-12">
@@ -139,7 +200,7 @@ const Testimonial = () => {
                   <h3>Testimonials</h3>
                 </div>
                 <div className="bigheading" id='bigheading'>
-                  <svg
+                    <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={1777}
                       height={190}
@@ -219,29 +280,43 @@ const Testimonial = () => {
                 </div>
               </div>
             </div>
-
-            <div className="col-lg-12" id='testimonial-slider'>
-              <Slider {...settings}>
-                {testimonials.map(testimonial => (
-                  <div key={testimonial.id} className="testimonial-slide">
-                    <div
-                      className="slider-content-wrapper"
-                      style={{ backgroundImage: testimonial.backgroundImage }}
-                    >
-                      <div className="content-01">
-                        <img src='img/quote.svg' alt='quote' />
-                        <p>{testimonial.paragraph}</p>
-                      </div>
-                      <div className="content-02">
-                        <h3>{testimonial.heading}</h3>
-                        <h4>{testimonial.subheading}</h4>
-                      </div>
+            <div className="col-lg-12">
+              <div ref={cursorRef} className="drag-cursor">
+                <img src="img/drga-cursor.svg" className="img-fluid" alt="Custom Cursor" />
+              </div>
+              <div className="testimponila_wrapper" ref={wrapperRef}>
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={index}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
                     </div>
                   </div>
                 ))}
-              </Slider>
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={`clone-${index}`}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={`clone-${index}`}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-
           </div>
         </div>
       </div>

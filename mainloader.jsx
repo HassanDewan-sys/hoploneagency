@@ -1,43 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 
 const MainLoadingScreen = () => {
+    const [loadingComplete, setLoadingComplete] = useState(false);
+
     useEffect(() => {
-        $(document).ready(function() {
-            var counter = 0;
-            var count = 0;
-            var i = setInterval(function() {
-                $(".loadingscreen .loadingscreen-counter h1").html(count + "%");
-                $(".loadingscreen").css("width", count + "%");
+        var counter = 0;
+        var count = 0;
+        var i = setInterval(function() {
+            $(".loadingscreen .loadingscreen-counter h1").html(count + "%");
+            $(".loadingscreen").css("width", count + "%");
 
-                counter++;
-                count++;
-                if (counter == 101) {
-                    clearInterval(i);
-                }
-            }, 50);
-
-            // After 15 seconds, clear the interval but continue showing the loadingscreen
-            setTimeout(function() {
+            counter++;
+            count++;
+            if (counter === 101) {
                 clearInterval(i);
-                // Check if window is already loaded
-                if (document.readyState === 'complete') {
-                    $(".loadingscreen").hide(); // Hide the loadingscreen
-                }
-            }, 15000); // 15 seconds
+                setLoadingComplete(true); // Set loading complete to true
+            }
+        }, 50);
 
-            // Check if window is fully loaded after another 10 seconds
-            setTimeout(function() {
-                $(window).on("load", function() {
-                    $(".loadingscreen").hide(); // Hide the loadingscreen
-                });
-            }, 5000); // 10 seconds
-        });
+        // Cleanup interval on component unmount
+        return () => {
+            clearInterval(i);
+        };
     }, []);
+
+    useEffect(() => {
+        if (loadingComplete) {
+            $('html').css('overflow', 'auto');
+        }
+    }, [loadingComplete]);
+
+    if (loadingComplete) {
+        return null; // Return null to hide the loading screen
+    }
 
     return (
         <div className="loadingscreen">
             <div className="loadingscreen-counter">
+                <img src="img/loading-logo.gif" className='img-fluid' />
                 <h1>0%</h1>
             </div>
         </div>

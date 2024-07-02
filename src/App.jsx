@@ -4,6 +4,7 @@ import Header from './header';
 import MobileMenu from './components/mobilemenu'; 
 import Home from './home'; 
 import Footer from './footer';
+import Mainjs from './components/mainjs';
 import Mainloader from '../mainloader';
 
 const App = () => {
@@ -15,12 +16,12 @@ const App = () => {
 
   return (
     <Router>
+      <Mainjs></Mainjs>
       <Mainloader></Mainloader>
       <Header toggleMenu={toggleMenu} isMenuOpen={isOpen} />
       <MobileMenu isOpen={isOpen} />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* Define more routes here as needed */}
       </Routes>
       <Footer />
     </Router>

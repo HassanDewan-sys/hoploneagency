@@ -5,6 +5,8 @@ import About from './components/about';
 import Services from './components/services';
 import Video from './components/video';
 import Portfolio from './components/portfolio';
+import Faqs from './components/faqs';
+import Blogs from './components/blogs';
 
 const Home = () => {
   
@@ -17,6 +19,8 @@ const Home = () => {
     <Services></Services>
     <Clinets></Clinets>
     <Testimonial></Testimonial>
+    <Faqs></Faqs>
+    <Blogs></Blogs>
   </>
   )
 }
