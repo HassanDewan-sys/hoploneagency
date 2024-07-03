@@ -35,7 +35,7 @@ const clinets = () => {
             <div className="col-lg-12">
               <div className="heading">
                 <div className="smallheading">
-                  <h3>Clientss</h3>
+                  <h3>Clients</h3>
                 </div>
                 <div className="bigheading" id='bigheadingclient'>
                   <svg

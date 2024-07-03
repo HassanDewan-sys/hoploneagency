@@ -643,8 +643,8 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '#blogs',
-          start: '+=40%',
-          end: '+=90%',
+          start: '+=35%',
+          end: '+=80%',
           scrub: true,
           onUpdate: self => {
             const progress = self.progress.toFixed(3);
@@ -823,7 +823,7 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '.services-wrapper-main',
-          start: '+=0%',
+          start: '-=100%',
           end: '+=50%',
           scrub: true,
           onUpdate: self => {
