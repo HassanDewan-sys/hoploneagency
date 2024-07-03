@@ -29,7 +29,7 @@ const blogs = () => {
 
   return (
     <section id='blogs'>
-      <section id='blog-masking'>
+      <section id='blog-masking' className='mask-hide'>
         <div></div>
       </section>
       <div className="container-fluid">
@@ -85,7 +85,7 @@ const blogs = () => {
                   </div>
 
                   <div className="col-lg-12">
-                      <div className="blogs-wrapper">
+                      <div className="blogs-wrapper hover-mask-hide">
                         <div ref={cursorRefblog} className="blog-cursor">
                           <img src="img/blog-cursor.svg" className="img-fluid" alt="Custom Cursor" />
                         </div>
@@ -123,6 +123,20 @@ const blogs = () => {
                               </div>
                           </Link>
                       </div>
+                  </div>
+
+                  <div className="col-lg-12 blog-btn">
+                        <div className="btn">
+                            <Link to='#'>
+                                <button className='hero-btn hover-mask-hide cr-hover'>
+                                    <span>
+                                        <svg>
+                                            <text className="svg-text">Explore More</text>
+                                        </svg>  
+                                    </span>
+                                </button>
+                            </Link>
+                        </div>
                   </div>
 
               </div>

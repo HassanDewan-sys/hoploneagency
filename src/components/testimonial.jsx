@@ -105,7 +105,7 @@ const Testimonial = () => {
 
   return (
     <section id='testimonial'>
-      <section className="black-masking" id='testimonial-masking'>
+      <section className="black-masking hover-mask-hide" id='testimonial-masking'>
         <div></div>
       </section>
       <div className="container-fluid" ref={containerRef}>
@@ -201,7 +201,7 @@ const Testimonial = () => {
               <div ref={cursorRef} className="drag-cursor">
                 <img src="img/drga-cursor.svg" className="img-fluid" alt="Custom Cursor" />
               </div>
-              <div className="testimponila_wrapper" ref={wrapperRef}>
+              <div className="testimponila_wrapper mask-hide" ref={wrapperRef}>
                 {testimonials.map((testimonial, index) => (
                   <div className="testimonila-items" key={index}>
                     <img src="img/testimonila-stars.svg" className='img-fluid'/>

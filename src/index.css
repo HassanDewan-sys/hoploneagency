@@ -8,6 +8,9 @@
   font-style: normal;
 
 }
+*{
+  outline: 0;
+}
 body .loadingscreen {
   background: #000;
   height: 100%;
@@ -721,7 +724,7 @@ section#testimonial {
   position: relative;
 }
 #Clients {
-  padding: 80px 0;
+  padding: 120px 0 80px 0;
   position: relative;
   z-index: 9;
 }
@@ -2589,6 +2592,30 @@ img#swordmen {
 #blogs #blogsbigheading * {
   stroke: #dadada;
 }
+.blog-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px !important;
+}
+
+.blog-btn .btn button {border: 1px solid #000;font-size: 34px;}
+
+.blog-btn .hero-btn span {
+  color: #000 !important;
+}
+
+.blog-btn .hero-btn span * {
+  fill: #000;
+}
+
+.blog-btn .hero-btn span svg .svg-text {
+  fill: #000;
+}
+
+.blog-btn .hero-btn:hover span svg .svg-text {
+  fill: transparent;
+}
 
 
 
@@ -3433,6 +3460,9 @@ body .loadingscreen .loadingscreen-counter h1 {
 #service-items .service-box a {
   font-size: 14px;
   padding: 8px 20px 8px 20px;
+}
+.blog-btn .btn button {
+  font-size: 28px;
 }
   
 }
