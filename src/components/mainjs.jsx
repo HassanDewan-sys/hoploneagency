@@ -823,8 +823,8 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '.services-wrapper-main',
-          start: 'top',
-          end: '+=100px',
+          start: 'bottom',
+          end: '+=200px',
           scrub: true,
           onUpdate: self => {
             const scrollProgress = self.progress.toFixed(3);
