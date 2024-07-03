@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
 
 const Portfolio = () => {
 
@@ -21,16 +22,59 @@ const Portfolio = () => {
     video.currentTime = 0;
     video.load();
   };
-  
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#portfolio-video",
+      start: "+=40%",
+      onEnter: () => {
+        gsap.to(".pr-hover-img", {
+          display: 'none',
+          duration: 0.5
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(".pr-hover-img", {
+          display: 'block',
+          duration: 0.5
+        });
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const animateAddportfolio = () => {
+        const headingElement = document.querySelector('#portfolio h4');
+        gsap.to(headingElement, {
+          background: 'linear-gradient(to right, #000000 10%, #DADADA 100%)',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.portfolio-wrapper-main',
+            start: '-=200px',
+            end: '+=300px',
+            scrub: true,
+            onUpdate: self => {
+              const scrollProgress = self.progress.toFixed(3);
+              headingElement.style.background = `linear-gradient(to right, #fff ${scrollProgress * 100}%, #000 ${scrollProgress * 100}%)`;
+            },
+          },
+        });
+      };
+      
+      // Call the animateAddportfolio function
+      animateAddportfolio();
+      
+  }, []);
   
 
   return (
     <>
       <div className="portfolio-wrapper-main">
 
-          <section id='banner-masking-portfolio'>
-            <div></div>
-          </section>
+        <section id='banner-masking-portfolio' className='mask-hide'>
+          <div></div>
+        </section>
 
         <section id='portfolio'>
           <div className="container-fluid">
@@ -50,7 +94,7 @@ const Portfolio = () => {
                   </div>
                   <div className="btn">
                     <Link to='#'>
-                      <button className='hero-btn'>
+                      <button className='hero-btn hover-mask-hide cr-hover'>
                         <span>
                           <svg>
                             <text className="svg-text">Learn More</text>
@@ -68,7 +112,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        <section id='portfolio-video'>
+        <section id='portfolio-video' ref={videoRef}>
           <div className="container-fluid">
             <div className="col-lg-11 mx-auto">
               <div className="row">
@@ -76,12 +120,14 @@ const Portfolio = () => {
                   <div className="pr-heading" id='pr-heading'>
                     <img src="img/pr-heading.svg" className='img-fluid' />
                   </div>
+                  <img src="img/hover.svg" className='pr-hover-img' />
                   <div className="portfoliowraper">
                     {videos.map((video, index) => (
                       <video
                         key={index}
                         loop
                         muted
+                        className='hover-mask-hide cr-hover'
                         poster={video.poster}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}

@@ -79,89 +79,6 @@ const Testimonial = () => {
     }
   }, [testimonials.length]);
 
-  useEffect(() => {
-    const animation = () => {
-      const heading = document.querySelector('#testimonial .heading h3');
-      gsap.to(heading, {
-        background: 'linear-gradient(to right, #000000 10%, #DADADA 100%)',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#testimonial',
-          start: '+=70%',
-          end: '+=120%',
-          scrub: true,
-          onUpdate: self => {
-            const progress = self.progress.toFixed(3);
-            heading.style.background = `linear-gradient(to right, #000000 ${progress * 100}%, #DADADA ${progress * 100}%)`;
-          },
-        },
-      });
-    };
-
-    animation();
-  }, []);
-
-  useEffect(() => {
-    const serviceLine = document.getElementById('bigheading');
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('viewh');
-          } else {
-            entry.target.classList.remove('viewh');
-          }
-        });
-      });
-
-      observer.observe(serviceLine);
-    } else {
-      const onScroll = () => {
-        const rect = serviceLine.getBoundingClientRect();
-        const inView = (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-
-        if (inView) {
-          serviceLine.classList.add('view');
-        } else {
-          serviceLine.classList.remove('view');
-        }
-      };
-
-      window.addEventListener('scroll', onScroll);
-      return () => window.removeEventListener('scroll', onScroll);
-    }
-  }, []);
-
-  useEffect(() => {
-    // Mouse tracking animation for masking element
-    let cursor = document.querySelector('#testimonial-masking');
-    let mouseX = 0;
-    let mouseY = 0;
-
-    gsap.to({}, 0.016, {
-      repeat: -1,
-      onRepeat: function() {
-        gsap.set(cursor, {
-          css: {
-            '-webkit-mask-position': `${mouseX}px ${mouseY}px`,
-            'mask-position': `${mouseX}px ${mouseY}px`,
-          },
-        });
-      },
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-  }, []);
-
   const cursorRef = useRef(null);
 
   useEffect(() => {
@@ -287,6 +204,56 @@ const Testimonial = () => {
               <div className="testimponila_wrapper" ref={wrapperRef}>
                 {testimonials.map((testimonial, index) => (
                   <div className="testimonila-items" key={index}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={`clone-${index}`}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={`clone-${index}`}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={`clone-${index}`}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={`clone-${index}`}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={`clone-${index}`}>
                     <img src="img/testimonila-stars.svg" className='img-fluid'/>
                     <p>{testimonial.text}</p>
                     <div className="clinet-info">

@@ -54,6 +54,16 @@ const Menu = ({ isOpen }) => {
             </li>
             <li>
               <Link>
+                Faq
+              </Link>
+            </li>
+            <li>
+              <Link>
+                Blogs
+              </Link>
+            </li>
+            <li>
+              <Link>
                 Contact
               </Link>
             </li>

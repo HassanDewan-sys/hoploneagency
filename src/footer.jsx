@@ -1,35 +1,10 @@
 import { Link } from 'react-router-dom';
-import React, { useEffect } from 'react';
 
 const Footer = () => {
 
-  useEffect(() => {
-    // Mouse tracking animation for masking element
-    let cursor = document.querySelector('#footer-masking');
-    let mouseX = 0;
-    let mouseY = 0;
-
-    gsap.to({}, 0.016, {
-      repeat: -1,
-      onRepeat: function() {
-        gsap.set(cursor, {
-          css: {
-            '-webkit-mask-position': `${mouseX}px ${mouseY}px`,
-            'mask-position': `${mouseX}px ${mouseY}px`,
-          },
-        });
-      },
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-  }, []);
-
   return (
     <div className="footer-wrapper">
-      <section id='footer-masking'>
+      <section id='footer-masking' className='mask-hide'>
         <div></div>
       </section>
       <section id='footer'>
@@ -62,7 +37,7 @@ const Footer = () => {
             <div className="row" id='ft-content'>
               <div className="col-lg-4">
                 <div className="ft-logo">
-                  <img  src="img/logo.png" className='img-fluid' />
+                  <img  src="img/logo.png" className='img-fluid hover-mask-hide cr-hover' />
                 </div>
                 <div className="content">
                   <h3>
@@ -75,19 +50,19 @@ const Footer = () => {
                   <h4>Company</h4>
                   <ul>
                     <li>
-                      <Link to='/'>Home</Link>
+                      <Link to='/' className='hover-mask-hide cr-hover'>Home</Link>
                     </li>
                     <li>
-                      <Link to='/'>About</Link>
+                      <Link to='/' className='hover-mask-hide cr-hover'>About</Link>
                     </li>
                     <li>
-                      <Link to='/'>Work</Link>
+                      <Link to='/' className='hover-mask-hide cr-hover'>Work</Link>
                     </li>
                     <li>
-                      <Link to='/'>Services</Link>
+                      <Link to='/' className='hover-mask-hide cr-hover'>Services</Link>
                     </li>
                     <li>
-                      <Link to='/'>Contact</Link>
+                      <Link to='/' className='hover-mask-hide cr-hover'>Contact</Link>
                     </li>
                   </ul>
               </div>
@@ -95,16 +70,16 @@ const Footer = () => {
                 <h4>Services</h4>
                 <ul>
                   <li>
-                    <Link to='/'>Branding Services</Link>
+                    <Link to='/' className='hover-mask-hide cr-hover'>Branding Services</Link>
                   </li>
                   <li>
-                    <Link to='/'>Mobile Application Design<br/> and Development</Link>
+                    <Link to='/' className='hover-mask-hide cr-hover'>Mobile Application Design<br/> and Development</Link>
                   </li>
                   <li>
-                    <Link to='/'>Digital Marketing<br/> Services</Link>
+                    <Link to='/' className='hover-mask-hide cr-hover'>Digital Marketing<br/> Services</Link>
                   </li>
                   <li>
-                    <Link to='/'>SaaS Solutions</Link>
+                    <Link to='/' className='hover-mask-hide cr-hover'>SaaS Solutions</Link>
                   </li>
                 </ul>
               </div>
@@ -112,12 +87,12 @@ const Footer = () => {
                 <h4>Contact</h4>
                 <ul>
                   <li>
-                    <Link to='/'>Phunk Creative, Salts<br/> Mill, Victoria Rd, Saltaire,<br/> Shipley BD18 3LA
+                    <Link to='/' className='hover-mask-hide cr-hover'>Phunk Creative, Salts<br/> Mill, Victoria Rd, Saltaire,<br/> Shipley BD18 3LA
                     </Link>
                   </li>
                   <li>
-                    <a href='mailto:hello@hoplon.com'>hello@hoplon.com</a>
-                    <a href='tel:+441133 908 188'>+441133 908 188</a>
+                    <a href='mailto:hello@hoplon.com' className='hover-mask-hide cr-hover'>hello@hoplon.com</a>
+                    <a href='tel:+441133 908 188' className='hover-mask-hide cr-hover'>+441133 908 188</a>
                   </li>
                 </ul>
               </div>
@@ -126,12 +101,12 @@ const Footer = () => {
             <div className="row" id='privacy'>
               <div className="col-lg-12">
                 <div className="number">
-                  <span>Company Number:</span> <a href='tel:13426455'>13426455</a>
+                  <span className='hover-mask-hide cr-hover'>Company Number:</span> <a href='tel:13426455' className='hover-mask-hide cr-hover'>13426455</a>
                 </div>
                 <div className="number">
-                  <Link to='/'>Terms & Conditions</Link>
+                  <Link to='/' className='hover-mask-hide cr-hover'>Terms & Conditions</Link>
                   <span></span>
-                  <Link to='/'>Privacy Policy</Link>
+                  <Link to='/' className='hover-mask-hide cr-hover'>Privacy Policy</Link>
                 </div>
               </div>
             </div>

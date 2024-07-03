@@ -3,7 +3,7 @@ const banner = () => {
   return (
     <>
     <div className="banner-img-wraaper">
-      <section className="grenn-masking" id='banner-masking'>
+      <section className="grenn-masking mask-hide" id='banner-masking'>
         <div></div>
       </section>
       <section id='banner'>

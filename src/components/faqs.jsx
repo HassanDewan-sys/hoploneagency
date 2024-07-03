@@ -1,4 +1,5 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Link } from 'react-router-dom';
 
 const FAQs = () => {
   const accordionItems = [
@@ -27,36 +28,11 @@ const FAQs = () => {
         title: 'What if I dont have enough requests for the month?',
         content: 'You can typically expect to receive your tasks within 24 hours. However, please keep in mind that larger tasks demand additional time and attention, the delivery timeframe might extend. Our commitment is to ensure each task receives the necessary dedication for top-notch results.',
       },
-      {
-        id: 'six',
-        title: 'What languages do you code in?',
-        content: 'You can typically expect to receive your tasks within 24 hours. However, please keep in mind that larger tasks demand additional time and attention, the delivery timeframe might extend. Our commitment is to ensure each task receives the necessary dedication for top-notch results.',
-      },
-      {
-        id: 'seven',
-        title: 'Why would I not just hire a freelancer?',
-        content: 'You can typically expect to receive your tasks within 24 hours. However, please keep in mind that larger tasks demand additional time and attention, the delivery timeframe might extend. Our commitment is to ensure each task receives the necessary dedication for top-notch results.',
-      },
-      {
-        id: 'eight',
-        title: 'How fast will my requests be delivered?',
-        content: 'You can typically expect to receive your tasks within 24 hours. However, please keep in mind that larger tasks demand additional time and attention, the delivery timeframe might extend. Our commitment is to ensure each task receives the necessary dedication for top-notch results.',
-      },
-      {
-        id: 'nine',
-        title: 'What if I dont have enough requests for the month?',
-        content: 'You can typically expect to receive your tasks within 24 hours. However, please keep in mind that larger tasks demand additional time and attention, the delivery timeframe might extend. Our commitment is to ensure each task receives the necessary dedication for top-notch results.',
-      },
-      {
-        id: 'ten',
-        title: 'How fast will my requests be delivered?',
-        content: 'You can typically expect to receive your tasks within 24 hours. However, please keep in mind that larger tasks demand additional time and attention, the delivery timeframe might extend. Our commitment is to ensure each task receives the necessary dedication for top-notch results.',
-      },
   ];
 
   return (
     <section id='faq'>
-      <section id='faq-masking'>
+      <section id='faq-masking' className='mask-hide'>
         <div></div>
       </section>
       <div className="container-fluid">
@@ -68,12 +44,23 @@ const FAQs = () => {
                   <h3>FAQ</h3>
                 </div>
               </div>
+              <div className="btn">
+                  <Link to='#'>
+                    <button className='hero-btn hover-mask-hide cr-hover'>
+                      <span>
+                        <svg>
+                          <text className="svg-text">Explore More</text>
+                        </svg>  
+                      </span>
+                    </button>
+                  </Link>
+                </div>
             </div>
             <div className="col-lg-8">
               <div className="accordion" id="accordionExample">
                 {accordionItems.map((item, index) => (
                   <div className="accordion-item" key={index}>
-                    <h2 className="accordion-header" id={`heading${item.id}`}>
+                    <h2 className="accordion-header hover-mask-hide cr-hover" id={`heading${item.id}`}>
                       <button
                         className="accordion-button"
                         type="button"

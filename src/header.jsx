@@ -9,7 +9,7 @@ const Header = ({ toggleMenu, isMenuOpen }) => {
           <div className="col-lg-11 mx-auto">
             <div className="row">
               <div className="col-lg-3 col-6">
-                <div className="logo">
+                <div className="logo hover-mask-hide cr-hover">
                   <Link to='/'>
                     <img src="img/logo.png" alt="logo" />
                   </Link>
@@ -17,7 +17,7 @@ const Header = ({ toggleMenu, isMenuOpen }) => {
               </div>
               <div className="col-lg-7"></div>
               <div className="col-lg-2 col-6">
-                <div className="menu" id='mobilemenu-open' onClick={toggleMenu}>
+                <div className="menu hover-mask-hide cr-hover" id='mobilemenu-open' onClick={toggleMenu}>
                   <div className={`humberger ${isMenuOpen ? 'active' : ''}`}>
                     <span></span>
                     <span></span>
