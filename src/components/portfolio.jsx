@@ -42,30 +42,6 @@ const Portfolio = () => {
       }
     });
   }, []);
-
-  useEffect(() => {
-    const animateAddportfolio = () => {
-        const headingElement = document.querySelector('#portfolio h4');
-        gsap.to(headingElement, {
-          background: 'linear-gradient(to right, #000000 10%, #DADADA 100%)',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.portfolio-wrapper-main',
-            start: '-=200px',
-            end: '+=300px',
-            scrub: true,
-            onUpdate: self => {
-              const scrollProgress = self.progress.toFixed(3);
-              headingElement.style.background = `linear-gradient(to right, #fff ${scrollProgress * 100}%, #000 ${scrollProgress * 100}%)`;
-            },
-          },
-        });
-      };
-      
-      // Call the animateAddportfolio function
-      animateAddportfolio();
-      
-  }, []);
   
 
   return (

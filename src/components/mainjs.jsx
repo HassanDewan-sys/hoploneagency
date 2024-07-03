@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import $ from 'jquery';
+gsap.registerPlugin(ScrollTrigger);
 
 const mainjs = () => {
 
@@ -347,6 +348,30 @@ const mainjs = () => {
   // Portfolio Js Start
 
   useEffect(() => {
+    const animateAddportfolio = () => {
+        const headingElement = document.querySelector('#portfolio h4');
+        gsap.to(headingElement, {
+          background: 'linear-gradient(to right, #000000 10%, #DADADA 100%)',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.portfolio-wrapper-main',
+            start: '-=200px',
+            end: '+=300px',
+            scrub: true,
+            onUpdate: self => {
+              const scrollProgress = self.progress.toFixed(3);
+              headingElement.style.background = `linear-gradient(to right, #fff ${scrollProgress * 100}%, #000 ${scrollProgress * 100}%)`;
+            },
+          },
+        });
+      };
+      
+      // Call the animateAddportfolio function
+      animateAddportfolio();
+      
+  }, []);
+
+  useEffect(() => {
     function generateFilePathsportf(prefix, count, extension) {
       const paths = [];
       for (let i = 1; i <= count; i++) {
@@ -495,7 +520,7 @@ const mainjs = () => {
       return paths;
     }
 
-    function page03canvas() {
+    function pagefootercanvas() {
       const canvas = document.querySelector("#ft-hand");
       const context = canvas.getContext("2d");
 
@@ -537,7 +562,7 @@ const mainjs = () => {
           ease: "none",
           scrollTrigger: {
             trigger: "#footer",
-            start: "top top", // Align trigger's top with viewport's top
+            start: "+=0", // Align trigger's top with viewport's top
             end: "center", // Align trigger's bottom with viewport's bottom
             scrub: 1, 
             pin: true,
@@ -577,7 +602,7 @@ const mainjs = () => {
       }
     }
 
-    page03canvas();
+    pagefootercanvas();
   }, []);
 
   useEffect(() => {
@@ -791,26 +816,27 @@ const mainjs = () => {
   }, []);
 
   useEffect(() => {
-    const animationServices = () => {
-      const heading = document.querySelector('#Services .heading h3');
-      gsap.to(heading, {
+    const xyzAnimationHeading = () => {
+      const xzxHeadingElement = document.querySelector('#Services .heading h3');
+      gsap.to(xzxHeadingElement, {
         background: 'linear-gradient(to right, #000000 10%, #DADADA 100%)',
         ease: 'none',
         scrollTrigger: {
-          trigger: '#Services',
+          trigger: '.services-wrapper-main',
           start: '+=50%',
           end: '+=100%',
           scrub: true,
           onUpdate: self => {
-            const progress = self.progress.toFixed(3);
-            headingElement.style.background = `linear-gradient(to right, #fff ${scrollProgress * 100}%, #000 ${scrollProgress * 100}%)`;
+            const scrollProgress = self.progress.toFixed(3);
+            xzxHeadingElement.style.background = `linear-gradient(to right, #fff ${scrollProgress * 100}%, #000 ${scrollProgress * 100}%)`;
           },
         },
       });
     };
-
-    animationServices();
+  
+    xyzAnimationHeading();
   }, []);
+  
 
   // Services Js End
 
