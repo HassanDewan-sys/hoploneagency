@@ -61,8 +61,8 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '#About',
-          start: 'top center',
-          end: 'center center',
+          start: '-=200px',
+          end: '+=300px',
           scrub: true,
           onUpdate: self => {
             const progress = self.progress.toFixed(3);
@@ -301,8 +301,8 @@ const mainjs = () => {
           ease: 'none',
           scrollTrigger: {
             trigger: '#Clients',
-            start: '+=50%',
-            end: '+=100%',
+            start: '+=45%',
+            end: '+=90%',
             scrub: true,
             onUpdate: self => {
               const scrollProgress = self.progress.toFixed(3);
@@ -643,8 +643,8 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '#blogs',
-          start: '+=50%',
-          end: '+=100%',
+          start: '+=40%',
+          end: '+=90%',
           scrub: true,
           onUpdate: self => {
             const progress = self.progress.toFixed(3);
@@ -732,8 +732,8 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '#faq',
-          start: '+=50%',
-          end: '+=100%',
+          start: '+=45%',
+          end: '+=90%',
           scrub: true,
           onUpdate: self => {
             const scrollProgress = self.progress.toFixed(3);
@@ -823,8 +823,8 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '.services-wrapper-main',
-          start: '+=50%',
-          end: '+=100%',
+          start: '+=0%',
+          end: '+=50%',
           scrub: true,
           onUpdate: self => {
             const scrollProgress = self.progress.toFixed(3);
@@ -852,8 +852,8 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '#testimonial',
-          start: '+=50%',
-          end: '+=100%',
+          start: '+=45%',
+          end: '+=90%',
           scrub: true,
           onUpdate: self => {
             const progress = self.progress.toFixed(3);
