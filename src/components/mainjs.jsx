@@ -823,7 +823,7 @@ const mainjs = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: '.services-wrapper-main',
-          start: 'bottom',
+          start: '+=30%',
           end: '+=200px',
           scrub: true,
           onUpdate: self => {
