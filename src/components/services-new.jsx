@@ -13,8 +13,8 @@ const ServicesNew = () => {
         gsap.to('.new-service-items , .n-service-heading', {
             scrollTrigger: {
                 trigger: '#new-services-wrapper',
-                start: '+=100px',
-                end: '+=45%',
+                start: '+=50%',
+                end: '+=80%',
                 scrub: 1,
             },
                 top:0,

@@ -2903,6 +2903,9 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 .testimponila_wrapper .testimonila-items:hover img{
   filter: brightness(1000);
 }
+.testimponila_wrapper .testimonila-items:hover{
+  background-color: #000;
+}
 
 
 /* Responsivness */
