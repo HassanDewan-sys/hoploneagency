@@ -3783,6 +3783,8 @@ body .loadingscreen .loadingscreen-counter h1 {
 #n-services-masking{
   display: none !important;
 }
-
+#Clients .client-logo img {
+  width: 100%;
+}
 
 }
