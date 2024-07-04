@@ -776,7 +776,7 @@ section#testimonial {
   z-index: 99;
 }
 #logo {
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 #About {
@@ -1456,7 +1456,7 @@ img#swordmen {
 }
 
 .testimponila_wrapper {
-  margin-top: 60px;
+  margin-top: 100px;
 }
 
 #faq {
@@ -1939,6 +1939,8 @@ img#swordmen {
 #Clients .client-logo img {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
+          width: 190px;
+    margin: 0 auto;
 }
 
 #Clients .client-logo img:hover {
