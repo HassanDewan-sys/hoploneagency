@@ -222,6 +222,126 @@ const Testimonial = () => {
                     </video>
                   </div>
                 ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={index}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                    <video
+                      loop
+                      muted
+                      playsInline
+                      autoPlay
+                      preload='true'
+                      className='hover-mask-hide'
+                    >
+                      <source src='video/testimonial.mp4' type="video/mp4" />
+                    </video>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={index}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                    <video
+                      loop
+                      muted
+                      playsInline
+                      autoPlay
+                      preload='true'
+                      className='hover-mask-hide'
+                    >
+                      <source src='video/testimonial.mp4' type="video/mp4" />
+                    </video>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={index}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                    <video
+                      loop
+                      muted
+                      playsInline
+                      autoPlay
+                      preload='true'
+                      className='hover-mask-hide'
+                    >
+                      <source src='video/testimonial.mp4' type="video/mp4" />
+                    </video>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={index}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                    <video
+                      loop
+                      muted
+                      playsInline
+                      autoPlay
+                      preload='true'
+                      className='hover-mask-hide'
+                    >
+                      <source src='video/testimonial.mp4' type="video/mp4" />
+                    </video>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={index}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                    <video
+                      loop
+                      muted
+                      playsInline
+                      autoPlay
+                      preload='true'
+                      className='hover-mask-hide'
+                    >
+                      <source src='video/testimonial.mp4' type="video/mp4" />
+                    </video>
+                  </div>
+                ))}
+                {testimonials.map((testimonial, index) => (
+                  <div className="testimonila-items" key={index}>
+                    <img src="img/testimonila-stars.svg" className='img-fluid'/>
+                    <p>{testimonial.text}</p>
+                    <div className="clinet-info">
+                      <h4>{testimonial.name}</h4>
+                      <h5>{testimonial.title}</h5>
+                    </div>
+                    <video
+                      loop
+                      muted
+                      playsInline
+                      autoPlay
+                      preload='true'
+                      className='hover-mask-hide'
+                    >
+                      <source src='video/testimonial.mp4' type="video/mp4" />
+                    </video>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
