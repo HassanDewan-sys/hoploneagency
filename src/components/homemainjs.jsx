@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import $ from 'jquery';
 gsap.registerPlugin(ScrollTrigger);
 
-const mainjs = () => {
+const homemainjs = () => {
 
   // About js
   // Banner Js
@@ -875,4 +875,4 @@ const mainjs = () => {
   )
 }
 
-export default mainjs
+export default homemainjs

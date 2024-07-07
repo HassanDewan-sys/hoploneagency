@@ -1,3 +1,4 @@
+import Homemainjs from './components/homemainjs';
 import Banner from './components/banner';
 import Testimonial from './components/testimonial'
 import Clinets from './components/clinets';
@@ -12,6 +13,7 @@ const Home = () => {
   
   return (
     <>
+      <Homemainjs></Homemainjs>
       <Banner></Banner>
       <About></About>
       <Video></Video>

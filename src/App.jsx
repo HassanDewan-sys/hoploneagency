@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './header';
 import MobileMenu from './components/mobilemenu';
 import Home from './home';
+import AboutPage from './aboutpage';
 import Footer from './footer';
-import Mainjs from './components/mainjs';
 import Mainloader from '../mainloader';
 
 const App = () => {
@@ -80,13 +80,13 @@ const App = () => {
 
   return (
     <Router>
-      <Mainjs />
       <Mainloader />
       <div className={`small-hover-cursor ${isHovered ? 'show' : ''}`}></div>
       <Header toggleMenu={toggleMenu} isMenuOpen={isOpen} />
       <MobileMenu isOpen={isOpen} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="about" element={<AboutPage />} />
       </Routes>
       <Footer />
     </Router>

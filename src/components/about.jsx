@@ -83,7 +83,7 @@ const about = () => {
                   </div>
                 </div>
                 <div className="btn">
-                  <Link to='#'>
+                  <Link to='about'>
                     <button className='hero-btn hover-mask-hide cr-hover'>
                       <span>
                         <svg>
